@@ -17,6 +17,6 @@ namespace EntityLayer.Concrete
         public string Image { get; set; }
         public string Description { get; set; }
         public int Capacity { get; set; }  // O turun kapasitesini belirtecek
-        public string Status { get; set; }
+        public bool Status { get; set; }
     }
 }
