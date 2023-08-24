@@ -1,4 +1,4 @@
-﻿
+﻿@model UserSignInViewModel
 @{
     Layout = null;
 }
@@ -37,21 +37,23 @@
 					<img src="~/Login/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title">
 						Giriş Sayfası
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
+						<input class="input100" type="text" asp-for="username" placeholder="Kullanıcı adı">
+						<span asp-validation-for="username"></span>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Şifre">
+						<input class="input100" type="password" asp-for="password" placeholder="Şifre">
+						<span asp-validation-for="password"></span>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
