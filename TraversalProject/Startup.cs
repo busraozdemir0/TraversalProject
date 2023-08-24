@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TraversalProject.Models;
 
 namespace TraversalProject
 {
@@ -28,7 +29,8 @@ namespace TraversalProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>();
-            services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>()
+                .AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
             services.AddControllersWithViews();
 
             // proje seviyesinde authentication için
