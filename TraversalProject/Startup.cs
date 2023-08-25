@@ -80,6 +80,14 @@ namespace TraversalProject
                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                 );
             });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+            });
         }
     }
 }
