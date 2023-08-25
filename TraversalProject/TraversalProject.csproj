@@ -33,4 +33,10 @@
     <Folder Include="wwwroot\UserImages\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\AdminTheme\.github\workflows\handle-new-issue-comment.yml" />
+    <None Include="wwwroot\AdminTheme\.github\workflows\handle-new-issue.yml" />
+    <None Include="wwwroot\AdminTheme\.github\workflows\issue-staler.yml" />
+  </ItemGroup>
+
 </Project>
