@@ -1,8 +1,31 @@
-﻿
+﻿@model List<Reservation>
 @{
     ViewData["Title"] = "MyCurrentReservation";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h1>MyCurrentReservation</h1>
+<h1>Aktif Rezervasyonlar</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th hidden>#</th>
+        <th>Lokasyon</th>
+        <th>Kişi Sayısı</th>
+        <th>Rezervasyon Tarihi</th>
+        <th>Durum</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td hidden>@item.ReservationID</td>
+            <td>@item.Destination.City</td> <!-- Reservation tablosuna Destination'u include ettiğimiz için bu şekilde ulaşabildik -->
+            <td>@item.PersonCount</td>
+            <td>@item.ReservationDate</td>
+            <td>@item.Status</td>
+        </tr>
+    }
+</table>
+
+
 
