@@ -1,4 +1,8 @@
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +36,9 @@ namespace TraversalProject
             services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>()
                 .AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
             services.AddControllersWithViews();
+
+            services.AddScoped<ICommentService, CommentManager>(); // controller tarafýnda ef baðýmlýlýðýndan kurtulmak için
+            services.AddScoped<ICommentDal, EfCommentDal>();
 
             // proje seviyesinde authentication için
             services.AddMvc(config =>
