@@ -1,5 +1,6 @@
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using BusinessLayer.Container;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
@@ -37,8 +38,7 @@ namespace TraversalProject
                 .AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
             services.AddControllersWithViews();
 
-            services.AddScoped<ICommentService, CommentManager>(); // controller tarafýnda ef baðýmlýlýðýndan kurtulmak için
-            services.AddScoped<ICommentDal, EfCommentDal>();
+            services.ContainerDependenciens(); // baðýmlýlýktan kurtulmak için Extension metod yazdýk
 
             // proje seviyesinde authentication için
             services.AddMvc(config =>
