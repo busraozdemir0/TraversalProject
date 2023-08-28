@@ -65,6 +65,8 @@ namespace TraversalProject
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");  // hata sayfasýný döndürmesi için
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication(); // Bu satýr UseAuthorization kodunun üstünde yazýlmalý çünkü önce giriþ yapacak ardýndan o kullanýcý yetkilendirilebilecek
