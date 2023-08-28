@@ -13,6 +13,7 @@ namespace TraversalProject.Controllers
     [AllowAnonymous]
     public class ExcelController : Controller
     {
+        // excel dosyası olarak indirmek için kullanılan kütüphane: EPPlus
         public IActionResult Index()
         {
             return View();

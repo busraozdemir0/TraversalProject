@@ -10,17 +10,20 @@
     <div class="form-group">
         @Html.Label("Ad Soyad")
         <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <br />
 
     <div class="form-group">
         @Html.Label("Açıklama")
         <input type="text" asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <br />
     <div class="form-group">
         @Html.Label("Rehber Fotoğrafı")
         <input type="text" asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
     </div>
     <br />
     <div class="form-group">
