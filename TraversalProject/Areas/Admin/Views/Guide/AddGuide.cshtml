@@ -1,0 +1,39 @@
+﻿@model Guide
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Rehber Oluşturma Sayfası</h1>
+<form method="post">
+
+    <div class="form-group">
+        @Html.Label("Ad Soyad")
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.Label("Açıklama")
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Rehber Fotoğrafı")
+        <input type="text" asp-for="Image" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Instagram Url")
+        <input type="text" asp-for="ınstagramUrl" class="form-control" />
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.Label("Twitter Url")
+        <input type="text" asp-for="TwitterUrl" class="form-control" />
+    </div>
+    <br />
+
+    <button class="btn btn-outline-primary">Oluştur</button>
+</form>
