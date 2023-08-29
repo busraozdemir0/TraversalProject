@@ -9,6 +9,7 @@ namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [AllowAnonymous]
+    [Route("Admin/[controller]/[action]/{id?}")]
     public class DestinationController : Controller
     {
         private readonly IDestinationService _destinationService;

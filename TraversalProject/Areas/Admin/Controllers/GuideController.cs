@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]/{id?}")]  // aynı sayfaya tekrar tekrar yönlendirme yapabilmek için
     public class GuideController : Controller
     {
         private readonly IGuideService _guideService;
@@ -34,7 +35,7 @@ namespace TraversalProject.Areas.Admin.Controllers
             if(result.IsValid)
             {
                 _guideService.TAdd(guide);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Guide", new { area = "Admin" });
             }
             else
             {
@@ -55,15 +56,23 @@ namespace TraversalProject.Areas.Admin.Controllers
         public IActionResult EditGuide(Guide guide)
         {
             _guideService.TUpdate(guide);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
         public IActionResult ChangeToTrue(int id)
         {
-            return RedirectToAction("Index");
+            _guideService.TChangeToTrueByGuide(id);
+            return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
         public IActionResult ChangeToFalse(int id)
         {
-            return RedirectToAction("Index");
+            _guideService.TChangeToFalseByGuide(id);
+            return RedirectToAction("Index", "Guide", new {area="Admin"});
+        }
+        public IActionResult DeleteGuide(int id)
+        {
+            var guideID= _guideService.TGetByID(id);    
+            _guideService.TDelete(guideID);
+            return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
     }
 }
