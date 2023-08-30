@@ -8,6 +8,8 @@ using TraversalProject.Models;
 namespace TraversalProject.Controllers
 {
     [AllowAnonymous]
+    [Route("Admin/[controller]/[action]/{id?}")]
+    [Route("Member/[controller]/[action]/{id?}")]
     public class LoginController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
