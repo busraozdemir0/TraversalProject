@@ -40,6 +40,8 @@ namespace TraversalProject
                 .AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
             services.AddControllersWithViews();
 
+            services.AddHttpClient(); // api isteklerini karþýlamak için
+
             services.ContainerDependenciens(); // baðýmlýlýktan kurtulmak için Extension metod yazdýk
 
             services.AddAutoMapper(typeof(Startup)); // Auto mapper eklemesi

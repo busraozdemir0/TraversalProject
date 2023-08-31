@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using TraversalProject.Models;
 
 namespace TraversalProject.Controllers
-{
-    [AllowAnonymous]
+{   
     [Route("Admin/[controller]/[action]/{id?}")]
     [Route("Member/[controller]/[action]/{id?}")]
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
