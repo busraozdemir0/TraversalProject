@@ -1,0 +1,26 @@
+﻿@model IEnumerable<BookingExchangeViewModel2.Datum>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Booking Api Kur Bilgileri</h1>
+
+<br>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Kur Kodu</th>
+        <th>Kur Adı</th>
+        <th>Kur Sembolü</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+      <tr>
+          <td>@item.code</td>
+          <td>@item.name</td>
+          <td>@item.symbol</td>
+      </tr>
+
+    }
+</table>
+
