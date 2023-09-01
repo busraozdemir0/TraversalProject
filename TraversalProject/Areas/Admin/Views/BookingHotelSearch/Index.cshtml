@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BookingHotelSearchViewModel.Datum>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Booking Otel Rezervasyon Sayfası</h1>
+
+<h3>Arama Yapılan Şehir: Benidorm, Valencia Community, Spain</h3>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>#</th>
+        <th>Otel Adı</th>
+        <th>Konum Puanı</th>
+        <th>Denize Uzaklığı<th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            @{count++;}
+            <th>@count</th>
+            <td>@item.displayName.text</td>
+            <td>@item.inferredLocationScore</td>
+            <td>@item.location.beachDistance</td>
+            <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
+        </tr>
+    }
+</table>

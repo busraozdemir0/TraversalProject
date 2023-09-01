@@ -5,12 +5,14 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.IO;
+using TraversalProject.CQRS.Handlers.DestinationHandlers;
 using TraversalProject.Models;
 
 namespace TraversalProject
@@ -27,6 +29,13 @@ namespace TraversalProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // CQRS yapýsý için
+            services.AddScoped<GetAllDestinationQueryHandler>();
+            services.AddScoped<GetDestinationByIDQueryHandler>();
+            services.AddScoped<CreateDestinationCommandHandler>();
+            services.AddScoped<RemoveDestinationCommandHandler>();
+            services.AddScoped<UpdateDestinationCommandHandler>();
+
             services.AddLogging(x =>
             {
                 x.ClearProviders();  // mevcut saðlayýcýlar varsa bunlarý temizle
@@ -36,9 +45,10 @@ namespace TraversalProject
             });
 
             services.AddDbContext<Context>();
-            services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>()
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>()
                 .AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
-            services.AddControllersWithViews();
+
+            //services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider).AddEntityFrameworkStores<Context>();
 
             services.AddHttpClient(); // api isteklerini karþýlamak için
 
@@ -80,6 +90,7 @@ namespace TraversalProject
             }
 
             app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");  // hata sayfasýný döndürmesi için
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication(); // Bu satýr UseAuthorization kodunun üstünde yazýlmalý çünkü önce giriþ yapacak ardýndan o kullanýcý yetkilendirilebilecek
