@@ -2,6 +2,7 @@ using BusinessLayer.Container;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,9 @@ namespace TraversalProject
             services.AddScoped<CreateDestinationCommandHandler>();
             services.AddScoped<RemoveDestinationCommandHandler>();
             services.AddScoped<UpdateDestinationCommandHandler>();
+
+            // MediatR kütüphanesi ile CQRS
+            services.AddMediatR(typeof(Startup));  // typeof operatörü, bir argüman olarak alýnan deðerin veri türünü bir dize olarak döndürür. Startup dosyasýyla ayný namespace'de olan dosyalar için verdiðimiz dependency injection çalýþsýn demek istiyoruz.
 
             services.AddLogging(x =>
             {
