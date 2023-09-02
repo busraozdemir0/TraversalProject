@@ -10,6 +10,7 @@ using System.Collections.Generic;
 namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]/{id?}")]
     [AllowAnonymous]
     public class BookingHotelSearchController : Controller
     {
