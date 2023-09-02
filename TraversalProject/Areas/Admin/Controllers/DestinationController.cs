@@ -50,6 +50,7 @@ namespace TraversalProject.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult UpdateDestination(Destination destination)
         {
+            destination.Status = true;
             _destinationService.TUpdate(destination);
             return RedirectToAction("Index", "Destination", new { area = "Admin" });
         }

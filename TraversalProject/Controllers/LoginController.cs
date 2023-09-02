@@ -7,8 +7,7 @@ using TraversalProject.Models;
 
 namespace TraversalProject.Controllers
 {   
-    [Route("Admin/[controller]/[action]/{id?}")]
-    [Route("Member/[controller]/[action]/{id?}")]
+    //[Route("Member/[controller]/[action]/{id?}")]
     [AllowAnonymous]
     public class LoginController : Controller
     {
@@ -69,7 +68,7 @@ namespace TraversalProject.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.username, model.password,false,true);
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Dashboard", new {area="Member"});
+                    return RedirectToAction("Index","Member" ,"Dashboard" );
                 }
                 else
                 {
