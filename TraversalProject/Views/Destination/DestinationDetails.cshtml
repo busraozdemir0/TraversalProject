@@ -10,7 +10,7 @@
             <div class="container">
                 <h2 class="title">Tur Detayları</h2>
                 <ul class="breadcrumbs-custom-path mt-2">
-                    <li><a href="/Default/ındex/">Ana Sayfa</a></li>
+                    <li><a href="/Default/Index/">Tur Detayları</a></li>
                     <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Rehberin Yorumları </li>
                 </ul>
             </div>
@@ -26,18 +26,18 @@
             </h3>
             <div class="blog-post-align">
                 <div class="blog-post-img">
-                    <a href="#"><img src="~/Traversal-Liberty/assets/images/c1.jpg" alt="" class="rounded-circle img-fluid" /></a>
+                    <a href="#"><img src="@Model.Guide.Image" alt="" class="rounded-circle img-fluid" /></a>
                 </div>
                 <div class="blog-post-info">
                     <div class="author align-items-center mb-1">
-                        <a href="#">Johnson smith</a> in <a href="#url">Traversal</a>
+                        <a href="#">@Model.Guide.Name</a> Tur Rotaları: <a href="#url">@Model.Guide.Description</a>
                     </div>
                     <ul class="blog-meta">
                         <li class="meta-item blog-lesson">
-                            <span class="meta-value"> June 13, 2020 </span>
+                            <span class="meta-value">@(((DateTime)Model.Date).ToString("dd-MMM-yyyy")) </span>
                         </li>
                         <li class="meta-item blog-students">
-                            <span class="meta-value"> 6min read</span>
+                            <span class="meta-value"></span>
                         </li>
                     </ul>
                 </div>
@@ -59,7 +59,7 @@
                     </p>
                     <blockquote class="blockquote my-5">
                         <div class="icon-quote"><span class="fa fa-quote-left" aria-hidden="true"></span></div>
-                      Gezi Tur Seyahat Rotalar Dünya.
+                        Gezi Tur Seyahat Rotalar Dünya.
                         <footer class="blockquote-footer mt-3">
                             Elif Öztürk
                         </footer>
@@ -74,7 +74,7 @@
                     </div>
                     <h3 class="blog-desc-big m-0 mb-lg-4 mb-3"></h3>
                     <p class="mb-4">
-                       @Model.Details2
+                        @Model.Details2
                     </p>
                     <div class="d-grid left-right mt-5 pb-md-5">
                         <div class="buttons-singles tags">
@@ -95,13 +95,65 @@
                     </div>
 
                     <!--//author-card-->
-                    @await Component.InvokeAsync("_GuideDetails")
+
+
+                    <div class="author-card mt-5">
+                        <div class="row align-items-center">
+                            <div class="col-sm-3 col-6">
+                                <div>
+                                    <img src="@Model.Guide.Image" alt="" class="rounded-circle img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-sm-9 mt-sm-0 mt-3">
+                                <h3 class="mb-3 title">@Model.Guide.Name</h3>
+                                <p>
+                                    @Model.Guide.Description2
+                                </p>
+                                <ul class="author-icons mt-4">
+                                    <li>
+                                        <a class="facebook" href="#url">
+                                            <span class="fa fa-facebook"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="twitter" href="@Model.Guide.TwitterUrl">
+                                            <span class="fa fa-twitter"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="google" href="#url">
+                                            <span class="fa fa-google-plus"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="linkedin" href="#url">
+                                            <span class="fa fa-linkedin"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="github" href="#url">
+                                            <span class="fa fa-github"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dribbble" href="#url">
+                                            <span class="fa fa-dribbble"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <!--//author-card-->
-
                     @await Component.InvokeAsync("_CommentList",new{id=ViewBag.ID})  <!-- Belirtilen rotaya ait yorumlar gelmesi için id gönderiyoruz -->
-
                     @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml")
-   
+
                 </div>
             </div>
             <!--//blog-post-->

@@ -1,8 +1,10 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace TraversalProject.Controllers
 {
@@ -11,9 +13,9 @@ namespace TraversalProject.Controllers
         CommentManager commentManager = new CommentManager(new EfCommentDal());
 
         [HttpGet]
-        public PartialViewResult AddComment(int id)
+        public PartialViewResult AddComment()
         {
-            ViewBag.ID = id;
+            
             return PartialView();
         }
         [HttpPost]

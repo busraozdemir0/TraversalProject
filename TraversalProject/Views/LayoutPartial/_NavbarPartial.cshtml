@@ -29,17 +29,45 @@
                         <a class="nav-link" href="/Destination/Index/">Tur Rotaları</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Rehberlerimiz</a>
+                        <a class="nav-link" href="/Guide/Index/">Rehberlerimiz</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">İletişim</a>
+                        <a class="nav-link" href="/Contact/Index/">İletişim</a>
                     </li>
 
                 </ul>
             </div>
-            <div class="d-lg-block d-none">
-                <a href="contact.html" class="btn btn-style btn-secondary">Rezervasyon Yap</a>
+            <div class="d-lg-block d-none mr-3">
+                <a href="#" class="btn btn-style btn-secondary">Rezervasyon Yap</a>
             </div>
+
+            <div class="w3l_header_right">
+                <ul>
+                    <li class="dropdown profile_details_drop">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+                        <div class="mega-dropdown-menu">
+                            <div class="w3ls_vegetables">
+                                <ul class="dropdown-menu drp-mnu">
+
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        @*  @await Component.InvokeAsync("ShowHomeName")*@
+                                        <li><a href="/Login/LogOut/"> ▸ Çıkış Yap</a></li>
+                                        <br />
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/Login/SignIn/"> ▸ Giriş Yap</a></li>
+                                        <br />
+                                    }
+                                    <li><a href="/Login/SignUp/"> ▸ Kayıt Ol</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
             <!-- toggle switch for light and dark theme -->
             <div class="mobile-position">
                 <nav class="navigation">
@@ -55,6 +83,7 @@
                 </nav>
             </div>
             <!-- //toggle switch for light and dark theme -->
+
         </nav>
     </div>
 </header>

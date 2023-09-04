@@ -38,6 +38,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Member\Data\" />
+    <Folder Include="ViewComponents\Destination\" />
     <Folder Include="wwwroot\pdfreports\" />
     <Folder Include="wwwroot\UserImages\" />
   </ItemGroup>

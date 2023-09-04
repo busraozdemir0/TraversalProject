@@ -3,10 +3,12 @@ using BusinessLayer.Abstract.AbstractUow;
 using BusinessLayer.Concrete;
 using BusinessLayer.Concrete.ConcreteUow;
 using BusinessLayer.ValidationRules;
+using BusinessLayer.ValidationRules.ContactUs;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using DataAccessLayer.UnitOfWork;
 using DTOLayer.DTOs.AnnouncementDTOs;
+using DTOLayer.DTOs.ContactDTOs;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -56,6 +58,8 @@ namespace BusinessLayer.Container
         public static void CustomValidator(this IServiceCollection services)
         {
             services.AddTransient<IValidator<AnnouncementAddDto>, AnnouncementValidator>();
+
+            services.AddTransient<IValidator<SendMessageDto>, SendContactUsValidator>();  // dto ile validator'u eşleme
         }
     }
 }
