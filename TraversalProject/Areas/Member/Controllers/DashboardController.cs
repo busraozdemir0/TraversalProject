@@ -22,5 +22,9 @@ namespace TraversalProject.Areas.Member.Controllers
             ViewBag.userImage = userName.ImageURL;
             return View();
         }
+        public async Task<IActionResult> MemberDashboard()  // yeni temlate ile dashboard tasarımı
+        {
+            return View();
+        }
     }
 }
