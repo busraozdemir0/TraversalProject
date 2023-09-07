@@ -33,7 +33,7 @@ namespace TraversalProject.Areas.Admin.Controllers
 
             SmtpClient client=new SmtpClient();
             client.Connect("smtp.gmail.com", 587,false); //mailin port numarası 587
-            client.Authenticate("uiswagger@gmail.com", "afhltikzagkfeusv"); // mail hesabındaki uygulama şifreleri kısmına girerek aldığımız kod
+            client.Authenticate("uiswagger@gmail.com", "zzrplydqckadueqa"); // mail hesabındaki uygulama şifreleri kısmına girerek aldığımız kod
             client.Send(mimeMessage);
             client.Disconnect(true);
 
