@@ -12,7 +12,7 @@ namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]/{id?}")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public class ApiMovieController : Controller
     {
         public async Task<IActionResult> Index()

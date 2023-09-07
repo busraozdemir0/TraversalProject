@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -6,6 +7,8 @@ using System.Threading.Tasks;
 namespace TraversalProject.Areas.Member.Controllers
 {
     [Area("Member")]
+    [Route("Member/[controller]/[action]/{id?}")]
+    [Authorize(Roles = "Admin,Member, Manager, Editor , Visitor")]
     public class DashboardController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

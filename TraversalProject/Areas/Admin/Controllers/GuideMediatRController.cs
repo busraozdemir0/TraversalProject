@@ -9,7 +9,7 @@ namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]/{id?}")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public class GuideMediatRController : Controller
     {
         private readonly IMediator _mediator;

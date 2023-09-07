@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccessLayer.Concrete;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace TraversalProject.Controllers
 {
@@ -18,6 +20,13 @@ namespace TraversalProject.Controllers
         }
         public PartialViewResult PartialNavbar()
         {
+            using(var context=new Context())
+            {
+                var userName=User.Identity.Name;
+                var imageUrl = context.Users.Where(x => x.UserName == userName).Select(y => y.ImageURL).FirstOrDefault();
+                ViewBag.image = imageUrl;
+            }
+            
             return PartialView();
         }
         public PartialViewResult PartialFooter()

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalProject.Areas.Member.Controllers
 {
     [Area("Member")]
+    [Route("Member/[controller]/[action]/{id?}")]
+    [Authorize(Roles = "Admin, Member, Manager, Editor , Visitor")]
     public class CommentController : Controller
     {
         public IActionResult Index()

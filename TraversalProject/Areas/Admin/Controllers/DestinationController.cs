@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
     [Route("Admin/[controller]/[action]/{id?}")]
+    [Authorize(Roles = "Admin")]
     public class DestinationController : Controller
     {
         private readonly IDestinationService _destinationService;

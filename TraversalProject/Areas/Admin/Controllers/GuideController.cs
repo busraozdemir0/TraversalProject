@@ -2,12 +2,14 @@
 using BusinessLayer.ValidationRules;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]/{id?}")]  // aynı sayfaya tekrar tekrar yönlendirme yapabilmek için
+    [Authorize(Roles = "Admin")]
     public class GuideController : Controller
     {
         private readonly IGuideService _guideService;

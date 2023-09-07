@@ -8,7 +8,7 @@ namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]/{id?}")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public class DestinationCQRSController : Controller
     {
         private readonly GetAllDestinationQueryHandler _getAllDestinationQueryHandler;

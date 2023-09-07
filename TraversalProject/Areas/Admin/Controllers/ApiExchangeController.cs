@@ -12,7 +12,8 @@ using Newtonsoft.Json;
 namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Route("Admin/[controller]/[action]/{id?}")]
+    [Authorize(Roles = "Admin")]
     public class ApiExchangeController : Controller
     {
         // https://rapidapi.com/ntd119/api/booking-com13/ sitesinden bilgiler 
