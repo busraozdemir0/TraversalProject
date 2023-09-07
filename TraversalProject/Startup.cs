@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -73,7 +74,12 @@ namespace TraversalProject
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
 
-            services.AddMvc();
+            services.AddLocalization(opt =>
+            {
+                opt.ResourcesPath = "Resources";  // Resources adlý klasörden bilgileri çekecek
+            });
+
+            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
 
             services.ConfigureApplicationCookie(options =>
             {
@@ -107,6 +113,10 @@ namespace TraversalProject
 			app.UseRouting();
 
             app.UseAuthorization();
+
+            var supportedCultures = new[] { "en", "fr", "es", "gr", "tr", "de" };  // desteklenen diller
+            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[1]).AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures); // dillerin görünüm sayfasýna eklenmesi
+            app.UseRequestLocalization(localizationOptions);
 
             app.UseEndpoints(endpoints =>
             {

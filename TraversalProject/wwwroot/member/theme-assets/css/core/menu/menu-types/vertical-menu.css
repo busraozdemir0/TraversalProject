@@ -53,7 +53,7 @@ body.vertical-layout.vertical-menu.menu-expanded .navbar .navbar-brand .brand-te
 
 body.vertical-layout.vertical-menu.menu-expanded .main-menu
 {
-    width: 260px;
+    width: 280px;
 
     -webkit-transition: 300ms ease all;
        -moz-transition: 300ms ease all;

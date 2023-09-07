@@ -1,4 +1,4 @@
-﻿
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @{
     Layout = null;
 }
@@ -37,7 +37,7 @@
         </div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-@*                <li class=" nav-item">
+                <li class=" nav-item">
                     <a href="/Member/Dashboard/MemberDashboard/"><i class="ft-home"></i><span class="menu-title" data-i18n="">@localizer["Dashboard"]</span></a>
                 </li>
                 <li class=" nav-item">
@@ -69,7 +69,7 @@
                 </li>
                 <li class=" nav-item">
                 <a href="/Login/LogOut/"><i class="ft-lock"></i><span class="menu-title" data-i18n="">@localizer["Çıkış Yap"]</span></a>
-                </li>*@
+                </li>
             </ul>
         </div>
         <div class="navigation-background"></div>
