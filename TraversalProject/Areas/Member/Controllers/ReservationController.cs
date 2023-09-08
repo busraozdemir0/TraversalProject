@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -16,38 +17,40 @@ namespace TraversalProject.Areas.Member.Controllers
     [Authorize(Roles = "Admin,Member, Manager, Editor , Visitor")]
     public class ReservationController : Controller
     {
-        DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
-        ReservationManager reservationManager = new ReservationManager(new EfReservationDal());
+        private readonly IDestinationService _destinationService;
+        private readonly IReservationService _reservationService;
         private readonly UserManager<AppUser> _userManager;
 
-        public ReservationController(UserManager<AppUser> userManager)
+        public ReservationController(UserManager<AppUser> userManager, IDestinationService destinationService, IReservationService reservationService)
         {
             _userManager = userManager;
+            _destinationService = destinationService;
+            _reservationService = reservationService;
         }
 
         public async Task<IActionResult> MyCurrentReservation()
         {
             var userName = await _userManager.FindByNameAsync(User.Identity.Name);  // ada göre giren kullanıcıyı bulduk
-            var reservationList = reservationManager.GetListWithReservationByAccepted(userName.Id);
+            var reservationList = _reservationService.GetListWithReservationByAccepted(userName.Id);
             return View(reservationList);
         }
         public async Task<IActionResult> MyOldReservation()
         {
             var userName = await _userManager.FindByNameAsync(User.Identity.Name);  // ada göre giren kullanıcıyı bulduk
-            var reservationList = reservationManager.GetListWithReservationByPrevious(userName.Id);
-            ViewBag.reservationCount = reservationManager.GetListWithReservationByPrevious(userName.Id).Count();
+            var reservationList = _reservationService.GetListWithReservationByPrevious(userName.Id);
+            ViewBag.reservationCount = _reservationService.GetListWithReservationByPrevious(userName.Id).Count();
             return View(reservationList);
         }
         public async Task<IActionResult> MyApprovalReservation() // onay bekleyen rezervasyonlar
         {
             var userName = await _userManager.FindByNameAsync(User.Identity.Name);  // ada göre giren kullanıcıyı bulduk
-            var reservationList=reservationManager.GetListWithReservationByWaitApproval(userName.Id);
+            var reservationList= _reservationService.GetListWithReservationByWaitApproval(userName.Id);
             return View(reservationList);
         }
         [HttpGet]
         public IActionResult NewReservation()
         {
-            List<SelectListItem> values = (from x in destinationManager.TGetList()
+            List<SelectListItem> values = (from x in _destinationService.TGetList()
                                            select new SelectListItem
                                            {
                                                Text= x.City,
@@ -61,7 +64,7 @@ namespace TraversalProject.Areas.Member.Controllers
         {
             p.AppUserId = 1;
             p.Status = "Onay Bekliyor";
-            reservationManager.TAdd(p);
+            _reservationService.TAdd(p);
             return RedirectToAction("MyCurrentReservation");
         }
     }

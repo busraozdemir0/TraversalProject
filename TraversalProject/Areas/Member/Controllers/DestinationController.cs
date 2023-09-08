@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,17 +12,22 @@ namespace TraversalProject.Areas.Member.Controllers
     [Authorize(Roles = "Admin,Member, Manager, Editor , Visitor")]
     public class DestinationController : Controller
     {
-        DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
+        private readonly IDestinationService _destinationService;
+
+        public DestinationController(IDestinationService destinationService)
+        {
+            _destinationService = destinationService;
+        }
         public IActionResult Index()
         {
-            var values = destinationManager.TGetList();
+            var values = _destinationService.TGetList();
             return View(values);
         }
         //Arama işlemi
         public IActionResult GetCitiesSearchByName(string searchString)
         {
             ViewData["CurrentFilter"] = searchString;
-            var values = from x in destinationManager.TGetList() select x;
+            var values = from x in _destinationService.TGetList() select x;
             if(!string.IsNullOrEmpty(searchString))
             {
                 values = values.Where(y => y.City.ToLower().Contains(searchString) || y.City.ToUpper().Contains(searchString));

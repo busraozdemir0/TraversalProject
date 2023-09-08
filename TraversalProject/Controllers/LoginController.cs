@@ -71,8 +71,7 @@ namespace TraversalProject.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.username, model.password,false,true);
                 if(result.Succeeded)
                 {
-                    var userName = User.Identity.Name;
-                    var userId=_userManager.Users.Where(x=>x.UserName== userName).Select(y=>y.Id).FirstOrDefault();
+                    var userId=_userManager.Users.Where(x=>x.UserName== model.username).Select(y=>y.Id).FirstOrDefault();
                     
                     using(var context=new Context())
                     {

@@ -1,8 +1,10 @@
 ﻿using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace TraversalProject.Areas.Admin.Controllers
 {
@@ -20,7 +22,7 @@ namespace TraversalProject.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var commentList = _commentService.TGetListCommentWithDestination();
+            var commentList = _commentService.TGetListCommentAndUser();     
             return View(commentList);
         }
         public IActionResult DeleteComment(int id)
@@ -29,5 +31,6 @@ namespace TraversalProject.Areas.Admin.Controllers
             _commentService.TDelete(commentID);
             return RedirectToAction("Index", "Comment", new {area="Admin"});
         }
+
     }
 }

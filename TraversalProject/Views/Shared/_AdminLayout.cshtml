@@ -24,8 +24,7 @@
             </aside>
 
             <div class="layout-page">
-
-                @await Html.PartialAsync("/Views/Admin/PartialNavbar.cshtml")
+                @await Component.InvokeAsync("_AdminNavbar")
 
                 <div class="content-wrapper">
 

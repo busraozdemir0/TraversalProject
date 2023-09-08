@@ -18,17 +18,6 @@ namespace TraversalProject.Controllers
         {
             return PartialView();
         }
-        public PartialViewResult PartialNavbar()
-        {
-            using(var context=new Context())
-            {
-                var userName=User.Identity.Name;
-                var imageUrl = context.Users.Where(x => x.UserName == userName).Select(y => y.ImageURL).FirstOrDefault();
-                ViewBag.image = imageUrl;
-            }
-            
-            return PartialView();
-        }
         public PartialViewResult PartialFooter()
         {
             return PartialView();

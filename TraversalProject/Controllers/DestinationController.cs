@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -11,16 +12,17 @@ namespace TraversalProject.Controllers
     [AllowAnonymous]
     public class DestinationController : Controller
     {
-        DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
         private readonly UserManager<AppUser> _userManager;
+        private readonly IDestinationService _destinationService;
 
-        public DestinationController(UserManager<AppUser> userManager)
+        public DestinationController(UserManager<AppUser> userManager, IDestinationService destinationService)
         {
             _userManager = userManager;
+            _destinationService = destinationService;
         }
         public IActionResult Index()
         {
-            var values = destinationManager.TGetList();
+            var values = _destinationService.TGetList();
             return View(values);
         }
         [HttpGet]
@@ -36,7 +38,7 @@ namespace TraversalProject.Controllers
             {
                 ViewBag.commentMessage = "Yorum yapabilmek için sisteme üye olmanız gerekmektedir!";
             }
-            var values = destinationManager.TGetDestinationWithGuide(id);
+            var values = _destinationService.TGetDestinationWithGuide(id);
             return View(values);
         }
     }
