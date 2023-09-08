@@ -12,5 +12,9 @@ namespace DataAccessLayer.Abstract
         public List<Comment> GetListCommentWithDestination();
         public List<Comment> GetListCommentWithDestinationAndUser(int id);
         public List<Comment> GetListCommentAndUser();
+        public List<Comment> GetListUserComments(int id);   // giriş yapan kullanıcının yorumları
+
+        void PasifTheComment(int id);
+        void ActiveTheComment(int id);
     }
 }

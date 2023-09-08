@@ -62,5 +62,20 @@ namespace BusinessLayer.Concrete
         {
             return _commentDal.GetListCommentAndUser();
         }
+
+        public List<Comment> TGetListUserComments(int id)
+        {
+            return _commentDal.GetListUserComments(id);
+        }
+
+        public void TPasifTheComment(int id)
+        {
+            _commentDal.PasifTheComment(id);
+        }
+
+        public void TActiveTheComment(int id)
+        {
+            _commentDal.ActiveTheComment(id);
+        }
     }
 }

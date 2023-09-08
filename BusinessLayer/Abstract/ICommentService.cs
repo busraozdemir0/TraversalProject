@@ -13,5 +13,8 @@ namespace BusinessLayer.Abstract
         List<Comment> TGetListCommentWithDestination();
         public List<Comment> TGetListCommentAndUser();
         public List<Comment> TGetListCommentWithDestinationAndUser(int id);
+        public List<Comment> TGetListUserComments(int id);
+        void TPasifTheComment(int id);
+        void TActiveTheComment(int id);
     }
 }

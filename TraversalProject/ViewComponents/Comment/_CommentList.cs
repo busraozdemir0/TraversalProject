@@ -12,7 +12,7 @@ namespace TraversalProject.ViewComponents.Comment
         public IViewComponentResult Invoke(int id)
         {
             Context context = new Context();
-            ViewBag.commentCount = context.Comments.Where(x => x.DestinationID == id).Count();
+            ViewBag.commentCount = context.Comments.Where(x => x.DestinationID == id && x.CommentState==true).Count();
             var values = commentManager.TGetListCommentWithDestinationAndUser(id);
             return View(values);
         }
