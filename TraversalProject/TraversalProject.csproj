@@ -7,12 +7,16 @@
   <ItemGroup>
     <Compile Remove="Areas\Admin\Data\**" />
     <Compile Remove="Areas\Member\Data\**" />
+    <Compile Remove="ViewComponents\Destination\**" />
     <Content Remove="Areas\Admin\Data\**" />
     <Content Remove="Areas\Member\Data\**" />
+    <Content Remove="ViewComponents\Destination\**" />
     <EmbeddedResource Remove="Areas\Admin\Data\**" />
     <EmbeddedResource Remove="Areas\Member\Data\**" />
+    <EmbeddedResource Remove="ViewComponents\Destination\**" />
     <None Remove="Areas\Admin\Data\**" />
     <None Remove="Areas\Member\Data\**" />
+    <None Remove="ViewComponents\Destination\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,7 +51,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewComponents\Destination\" />
     <Folder Include="wwwroot\pdfreports\" />
     <Folder Include="wwwroot\UserImages\" />
   </ItemGroup>

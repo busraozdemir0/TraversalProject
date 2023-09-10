@@ -1,0 +1,18 @@
+﻿<div class="col-lg-6 col-md-12 column pl-lg-5 column4 mt-lg-0 mt-5">
+    <h3>Mail Bülteni </h3>
+    <div class="end-column">
+        <h4>Kampanya ve indirimler için abone olun.</h4>
+        <form asp-action="Newsletter" asp-controller="Newsletter" class="subscribe" method="post">
+            <input type="email" name="Mail" placeholder="Mail Adresiniz" required="">
+            <button id="btnSubmit" type="submit">Abone Ol</button>
+        </form>
+        <p>Spam mail göndermeden yeni tur rotalarını paylaşacağız.</p>
+    </div>
+</div>
+
+<script>
+    const btnSubmit=document.getElementById("btnSubmit");
+    btnSubmit.addEventListener("click",function(){
+        alert("Traversal acentasına başarıyla abone oldunuz.");
+    })
+</script>

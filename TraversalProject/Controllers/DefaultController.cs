@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BusinessLayer.Abstract;
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalProject.Controllers
@@ -6,9 +8,12 @@ namespace TraversalProject.Controllers
     [AllowAnonymous]
     public class DefaultController : Controller
     {
+
+
         public IActionResult Index()
         {
             return View();
         }
+
     }
 }

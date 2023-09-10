@@ -54,6 +54,9 @@ namespace BusinessLayer.Container
             services.AddScoped<ICommentService, CommentManager>();
             services.AddScoped<ICommentDal, EfCommentDal>();
 
+            services.AddScoped<INewsletterService, NewsletterManager>();
+            services.AddScoped<INewsletterDal, EfNewsletterDal>();
+
             services.AddScoped<IUowDal, UowDal>();
 
         }

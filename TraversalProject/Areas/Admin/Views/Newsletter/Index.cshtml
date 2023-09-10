@@ -1,0 +1,29 @@
+﻿@model List<Newsletter>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<h1>Abone Olanlar Listesi</h1>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th hidden>#</th>
+        <th>Mail</th>
+        <th>Mail Gönder</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td hidden>@item.NewsletterID</td>
+            <td>@item.Mail</td>
+            <td><a href=" mailto:@item.Mail" class="btn btn-outline-primary"><i class="fa-solid fa-envelope"></i></a></td>
+            <td><a href="/Admin/Newsletter/DeleteNewsletter/@item.NewsletterID" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a></td>
+        </tr>
+    }
+</table>
+
+
+

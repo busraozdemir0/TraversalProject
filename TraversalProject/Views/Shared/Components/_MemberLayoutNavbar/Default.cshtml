@@ -1,10 +1,20 @@
-﻿﻿
+﻿<style>
+    #badge{
+        position: absolute;
+        right: 0.7rem;
+        padding: 5px;
+        bottom:2.4rem;
+        font-size: 0.875rem;
+        border-radius: 60%;
+    }
+</style>
+﻿
 <ul class="nav navbar-nav float-right">
     <li class="dropdown dropdown-notification nav-item">
-        <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
-            <i class="ficon ft-mail"> </i>
+        <a class="nav-link nav-link-label" href="/Member/Notification/Index/">
+            <i class="ficon ft-bell"> </i> <span class="badge badge-danger" id="badge">@ViewBag.announcementCount</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-right">
+@*        <div class="dropdown-menu dropdown-menu-right">
             <div class="arrow_box_right">
                 <a class="dropdown-item" href="#">
                     <i class="ft-book"></i> Yeni Mesaj
@@ -13,31 +23,31 @@
                 </a>
                 <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Ana Sayfa </a>
             </div>
-        </div>
+        </div>*@
     </li>
     <li class="dropdown dropdown-user nav-item">
         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
             <span class="avatar avatar-online">
-                <img src="~/member/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i>
+                <img src="~/UserImages/@ViewBag.image" style="width:40px; height:37px;" alt="avatar"><i></i>
             </span>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
             <div class="arrow_box_right">
                 <a class="dropdown-item" href="#">
                     <span class="avatar avatar-online">
-                        <img src="~/member/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar">
-                        <span class="user-name text-bold-700 ml-1">Atakan Yıldız</span>
+                        <img src="~/UserImages/@ViewBag.image" style="width:40px; height:37px;" alt="avatar">
+                        <span class="user-name text-bold-700 ml-1">@ViewBag.name @ViewBag.surname</span>
                     </span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/Member/Profile/Index/">
                     <i class="ft-user"></i> Profili Düzenle
                 </a>
-                <a class="dropdown-item" href="#"><i class="ft-mail"></i> Aktif Rezervasyonlarım</a>
-                <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Geçmiş Rezervasyonlar</a>
-                <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Onay  Bekleyenler</a>
+                <a class="dropdown-item" href="/Member/Reservation/MyCurrentReservation/"><i class="ft-check-square"></i> Aktif Rezervasyonlarım</a>
+                <a class="dropdown-item" href="/Member/Reservation/MyOldReservation/"><i class="ft-download"></i> Geçmiş Rezervasyonlar</a>
+                <a class="dropdown-item" href="/Member/Reservation/MyApprovalReservation/"><i class="ft-clock"></i> Onay  Bekleyenler</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><i class="ft-power"></i> Çıkış Yap</a>
+                <a class="dropdown-item" href="/Login/LogOut/"><i class="ft-power"></i> Çıkış Yap</a>
             </div>
         </div>
     </li>

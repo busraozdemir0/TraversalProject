@@ -80,5 +80,10 @@ namespace TraversalProject.Areas.Admin.Controllers
             }
             return View(model);
         }
+        public IActionResult Details(int id)
+        {
+            var valueID = _announcementService.TGetByID(id);
+            return View(valueID);
+        }
     }
 }

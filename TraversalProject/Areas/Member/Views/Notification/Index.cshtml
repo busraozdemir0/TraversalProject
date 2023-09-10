@@ -1,4 +1,4 @@
-﻿@model List<Comment>
+﻿@model List<Announcement>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MemberLayout.cshtml";
@@ -8,7 +8,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Tur Rotalarına Yapılan Yorumlar</h4>
+                <h4 class="card-title">Yapılan Duyurular (@ViewBag.announcementCount)</h4>
                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -21,35 +21,25 @@
             </div>
             <div class="card-content collapse show">
                 <div class="card-body">
-                    <p class="card-text">Tur Rotalarına yaptığınız yorumları aşağıdan görebilirsiniz.</p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th hidden>#</th>
-                                    <th>Rota</th>
-                                    <th>Yorum tarihi</th>
-                                    <th>Yorum</th>
-                                    <th>Aktif/Pasif</th>
+                                    <th>Başlık</th>
+                                    <th>Duyuru Tarihi</th>
+                                    <th>Detay</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td hidden>@item.CommentID</td>
-                                        <td>@item.Destination.City</td>
-                                        <td>@(((DateTime)item.CommentDate).ToString("dd-MMM-yyyy"))</td>
-                                        <td>@item.CommentContent</td>
+                                        <td hidden>@item.AnnouncementID</td>
+                                        <td>@item.Title</td>
+                                        <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
                                         <td>
-                                            @if(item.CommentState==true)
-                                            {
-                                                <a href="/Member/Comment/PasifComment/@item.CommentID" class="btn btn-outline-danger">Pasif Yap</a>
-                                            }
-                                            else
-                                            {
-                                                <a href="/Member/Comment/ActiveComment/@item.CommentID" class="btn btn-outline-success">Aktif Yap</a>
-                                            }
+                                             <a href="/Member/Notification/Details/@item.AnnouncementID" class="btn btn-outline-info">Aç</a>
                                         </td>
                                     </tr>
                                 }
@@ -62,4 +52,6 @@
         </div>
     </div>
 </div>
+
+
 
