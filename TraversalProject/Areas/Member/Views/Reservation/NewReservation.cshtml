@@ -23,17 +23,17 @@
                 <div class="card-body">
                     <p class="card-text">Web Sitemiz Traversal üzerinde yer alan lokasyonlar içinde yeni bir rezervasyonu aşağıdaki panelden yapabilirsiniz. </p>
                     <form method="post">
-                        @*<div class="form-group">
-                        @Html.Label("Lokasyon")
-                        @Html.DropDownListFor(x => x.Destination, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
-                        </div>*@
                         <div class="form-group">
-                            @Html.Label("Kişi Sayısı")
-                            <input type="text" asp-for="PersonCount" class="form-control" />
+                        @Html.Label("Lokasyon")
+                            @Html.DropDownListFor(x => x.DestinationID, (List<SelectListItem>)ViewBag.destinations, new { @class = "form-control" })
                         </div>
                         <div class="form-group">
                             @Html.Label("Tarih")
                             <input type="date" asp-for="ReservationDate" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Kişi Sayısı")
+                            <input type="text" asp-for="PersonCount" class="form-control" />
                         </div>
                         <div class="form-group">
                             @Html.Label("Varsa Eklemek İstedikleriniz")

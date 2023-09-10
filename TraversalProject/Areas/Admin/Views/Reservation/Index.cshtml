@@ -1,0 +1,43 @@
+﻿@model List<Reservation>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Rezervasyon Listesi</h1>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th hidden>#</th>
+        <th>Ad Soyad</th>
+        <th>Rota</th>
+        <th>Tarih</th>
+        <th>Kişi Sayısı</th>
+        <th>Açıklama</th>
+        <th>Durum</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td hidden>@item.ReservationID</td>
+            <td>@item.AppUser.Name @item.AppUser.Surname</td>
+            <td>@item.Destination.City</td>
+            <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
+            <td>@item.PersonCount</td>
+            <td>@item.Description</td>
+            <td>
+                @if(item.Status == "Onay Bekliyor")
+                {
+                    <a href="/Admin/Reservation/ApprovalReservation/@item.ReservationID" class="btn btn-outline-warning">Onayla</a>
+                }
+                else
+                {
+                    <a href="#" class="btn btn-outline-success">Onaylandı</a>
+                }
+            </td>
+            <td><a href="/Admin/Reservation/DeleteReservation/@item.ReservationID" class="btn btn-outline-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+

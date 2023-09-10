@@ -11,5 +11,6 @@ namespace BusinessLayer.Abstract
     {
         public Destination TGetDestinationWithGuide(int id);
         public List<Destination> TGetLast4Destinations();
+        public List<Destination> TGetDestinationByReservation();
     }
 }
