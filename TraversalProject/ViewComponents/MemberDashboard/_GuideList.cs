@@ -1,18 +1,23 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace TraversalProject.ViewComponents.MemberDashboard
 {
     public class _GuideList : ViewComponent
     {
-        GuideManager guideManager = new GuideManager(new EfGuideDal());
         public IViewComponentResult Invoke()
         {
-            var values = guideManager.TGetList();
-            return View(values);
+            using (var context = new Context())
+            {
+                var values = context.Guides.Take(5).ToList();
+                return View(values);
+            }
+
         }
     }
 }
