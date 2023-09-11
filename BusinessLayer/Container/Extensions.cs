@@ -57,6 +57,9 @@ namespace BusinessLayer.Container
             services.AddScoped<INewsletterService, NewsletterManager>();
             services.AddScoped<INewsletterDal, EfNewsletterDal>();
 
+            services.AddScoped<IAboutService, AboutManager>();
+            services.AddScoped<IAboutDal, EfAboutDal>();
+
             services.AddScoped<IUowDal, UowDal>();
 
         }

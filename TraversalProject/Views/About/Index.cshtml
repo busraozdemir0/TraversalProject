@@ -1,0 +1,58 @@
+﻿@model List<About>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-2">
+            <h2 class="title">About Us</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="#url">Ana Sayfa</a></li>
+                <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Hakkımızda </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<!-- /about-6-->
+@foreach (var item in Model)
+{
+    <section class="w3l-cta4 py-5">
+        <div class="container py-lg-5">
+            <div class="ab-section text-center">
+                <h6 class="sub-title">Hakkımızda</h6>
+                <h3 class="hny-title">@item.Title</h3>
+                <p id="aboutText" style="display:block;" class="py-3 mb-3">
+                    @item.Description.Substring(0,341) ...
+                </p>
+                <p id="hidden" style="display:none;" class="py-3 mb-3">
+                    @item.Description
+                </p>
+                <button id="btn" class="btn btn-style btn-primary">Devamını Oku</button>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-9 mx-auto">
+                    <img src="/UserImages/@item.Image1" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<script>
+    const btn = document.getElementById("btn");
+    const hidden = document.getElementById("hidden");
+    const aboutText = document.getElementById("aboutText");
+
+    btn.addEventListener("click", function () {
+        hidden.style.display = "block";  // ilk başta yazının 300 karakteri gösterilecek
+        aboutText.style.display = "none"; // Devamını oku butonuna bastığında yazının tamamı gösterilecek.
+
+        btn.style.display="none"; // yazının tamamı açıldıktan sonra butonu kaldıralım
+    })
+
+</script>
+

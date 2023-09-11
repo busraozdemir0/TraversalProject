@@ -1,0 +1,33 @@
+﻿@model AboutUpdateViewModel
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Hakkımızda Güncelleme Sayfası</h1>
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x=>x.AboutID)
+    <div class="form-group">
+        @Html.Label("Başlık")
+        <input type="text" asp-for="Title" class="form-control" />
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.Label("Hakkımızda İçeriği")
+        <textarea type="text" asp-for="Description" class="form-control" rows="10"></textarea>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label>Resim Seçin</label>
+        <input type="file" asp-for="Image" />
+    </div>
+    <br />
+
+    <button class="btn btn-outline-primary">Güncelle</button>
+</form>
+
+
+
+
