@@ -50,9 +50,21 @@ namespace TraversalProject.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult UpdateDestination(Destination destination)
         {
-            destination.Status = true;
+            destination.Status = false;
             _destinationService.TUpdate(destination);
             return RedirectToAction("Index", "Destination", new { area = "Admin" });
+        }
+        public IActionResult PassiveDestination(int id)
+        {
+            var value= _destinationService.TGetByID(id);
+            _destinationService.TDestinationIsPassive(value);
+            return RedirectToAction("Index");
+        }
+        public IActionResult ActiveDestination(int id)
+        {
+            var value = _destinationService.TGetByID(id);
+            _destinationService.TDestinationIsActive(value);
+            return RedirectToAction("Index");
         }
     }
 }

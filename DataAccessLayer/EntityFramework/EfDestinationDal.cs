@@ -13,6 +13,26 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfDestinationDal : GenericRepository<Destination>, IDestinationDal
     {
+        public void DestinationIsActive(Destination destination)
+        {
+            using (var context = new Context())
+            {
+                destination.Status = true;
+                context.Destinations.Update(destination);
+                context.SaveChanges();
+            }
+        }
+
+        public void DestinationIsPassive(Destination destination)
+        {
+            using (var context = new Context())
+            {
+                destination.Status = false;
+                context.Destinations.Update(destination);
+                context.SaveChanges();
+            }
+        }
+
         public List<Destination> GetDestinationByReservation()
         {
             using (var context = new Context())

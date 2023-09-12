@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _featureDal = featureDal;
         }
 
+        public List<Destination> TFeaturedDestinations()
+        {
+            return _featureDal.FeaturedDestinations();
+        }
+
         public void TAdd(Feature t)
         {
             throw new NotImplementedException();

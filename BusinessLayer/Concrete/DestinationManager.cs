@@ -28,6 +28,16 @@ namespace BusinessLayer.Concrete
            _destinationDal.Delete(t);
         }
 
+        public void TDestinationIsActive(Destination destination)
+        {
+            _destinationDal.DestinationIsActive(destination);
+        }
+
+        public void TDestinationIsPassive(Destination destination)
+        {
+            _destinationDal.DestinationIsPassive(destination);
+        }
+
         public Destination TGetByID(int id)
         {
             return _destinationDal.GetByID(id);

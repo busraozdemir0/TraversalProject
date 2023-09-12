@@ -43,6 +43,7 @@ namespace TraversalProject.Areas.Admin.Controllers
         public async Task<IActionResult> UpdateAbout(AboutUpdateViewModel model)
         {
             About about = new About();
+
             if (model.Image != null)
             {
                 var resource = Directory.GetCurrentDirectory();
@@ -53,7 +54,12 @@ namespace TraversalProject.Areas.Admin.Controllers
                 await model.Image.CopyToAsync(stream);
                 about.Image1 = imageName;
             }
-            about.AboutID=model.AboutID;
+
+            else
+            {
+                about.Image1 = about.Image1;
+            }
+            about.AboutID = model.AboutID;
             about.Title = model.Title;
             about.Description = model.Description;
             about.Status = true;

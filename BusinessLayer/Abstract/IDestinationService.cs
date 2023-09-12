@@ -12,5 +12,7 @@ namespace BusinessLayer.Abstract
         public Destination TGetDestinationWithGuide(int id);
         public List<Destination> TGetLast4Destinations();
         public List<Destination> TGetDestinationByReservation();
+        public void TDestinationIsPassive(Destination destination);
+        public void TDestinationIsActive(Destination destination);
     }
 }

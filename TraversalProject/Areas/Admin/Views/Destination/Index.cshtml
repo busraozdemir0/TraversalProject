@@ -11,6 +11,7 @@
         <th>Şehir</th>
         <th>Fiyat</th>
         <th>Kapasite</th>
+        <th>Öne Çıkar</th>
         <th>Sitede Gör</th>
         <th>Sil</th>
         <th>Güncelle</th>
@@ -22,6 +23,16 @@
             <td>@item.City</td>
             <td>@item.Price</td>
             <td>@item.Capacity</td>
+            <td>
+                @if(@item.Status==true)
+                {
+                    <a href="/Admin/Destination/PassiveDestination/@item.DestinationID" class="btn btn-outline-primary">Pasif Yap</a>
+                }
+                else
+                {
+                    <a href="/Admin/Destination/ActiveDestination/@item.DestinationID" class="btn btn-outline-warning">Aktif Yap</a>
+                }
+               </td>
             <td><a href="/Destination/DestinationDetails/@item.DestinationID" class="btn btn-outline-info">Sitede Gör</a></td>
             <td><a href="/Admin/Destination/DeleteDestination/@item.DestinationID" class="btn btn-outline-danger">Sil</a></td>
             <td><a href="/Admin/Destination/UpdateDestination/@item.DestinationID" class="btn btn-outline-success">Güncelle</a></td>

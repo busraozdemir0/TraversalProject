@@ -60,6 +60,9 @@ namespace BusinessLayer.Container
             services.AddScoped<IAboutService, AboutManager>();
             services.AddScoped<IAboutDal, EfAboutDal>();
 
+            services.AddScoped<IFeatureService, FeatureManager>();
+            services.AddScoped<IFeatureDal, EfFeatureDal>();
+
             services.AddScoped<IUowDal, UowDal>();
 
         }

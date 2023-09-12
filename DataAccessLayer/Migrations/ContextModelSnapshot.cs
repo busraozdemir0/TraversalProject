@@ -391,30 +391,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Features");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Feature2", b =>
-                {
-                    b.Property<int>("Feature2ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Feature2ID");
-
-                    b.ToTable("Feature2s");
-                });
-
             modelBuilder.Entity("EntityLayer.Concrete.Guide", b =>
                 {
                     b.Property<int>("GuideID")
