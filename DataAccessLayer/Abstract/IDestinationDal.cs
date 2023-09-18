@@ -14,5 +14,6 @@ namespace DataAccessLayer.Abstract
         public List<Destination> GetDestinationByReservation();
         public void DestinationIsPassive(Destination destination);
         public void DestinationIsActive(Destination destination);
+        public int DestinationSearch(string cityName, DateTime date);
     }
 }

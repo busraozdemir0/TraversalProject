@@ -1,4 +1,10 @@
-﻿<section class="w3l-main-slider" id="home">
+﻿@model List<Destination>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+<section class="w3l-main-slider" id="home">
     <div class="banner-content">
         <div id="demo-1"
              data-zs-src='["/Traversal-Liberty/assets/images/banner1.jpg", "/Traversal-Liberty/assets/images/banner2.jpg","/Traversal-Liberty/assets/images/banner3.jpg", "/Traversal-Liberty/assets/images/banner4.jpg"]'
@@ -9,31 +15,34 @@
                         <h3>Seyahatler için uzağa gitmeye gerek yok.</h3>
                         <h6 class="mb-3">Bir sonraki maceranı hemen planla.</h6>
                         <div class="flex-wrap search-wthree-field mt-md-5 mt-4">
-                            <form action="#" method="post" class="booking-form">
+                            
+                            <form asp-action="DestinationSearch" asp-controller="Default" method="get" class="booking-form">
                                 <div class="row book-form">
                                     <div class="form-input col-md-4 mt-md-0 mt-3">
 
-                                        <select name="selectpicker" class="selectpicker">
+                                        <select id="select" name="selectpicker" class="selectpicker">
                                             <option value="">Rotalar</option>
-                                            <option value="africa">Ukrayna</option>
-                                            <option value="america">Almanya</option>
-                                            <option value="asia">Belçika Hollanda</option>
-                                            <option value="eastern-europe">Balkan Turu</option>
-                                            <option value="europe">Mısır Turu</option>
-                                            <option value="south-america">İspanya-Tunus</option>
-                                            <option value="south-america">Dopu Anadolu Gezisi</option>
-                                        </select>
+                                            @foreach (var item in Model)
+                                            {
+                                                <option value="@item.DestinationID">@item.City</option>
 
+                                            }
+
+                                        </select>
                                     </div>
                                     <div class="form-input col-md-4 mt-md-0 mt-3">
 
-                                        <input type="date" name="" placeholder="Date" required="">
+                                        <input id="datetime" type="date" name="Date" placeholder="Date">
                                     </div>
                                     <div class="bottom-btn col-md-4 mt-md-0 mt-3">
-                                        <button class="btn btn-style btn-secondary">
+                                        <button id="btn" class="btn btn-style btn-secondary">
                                             <span class="fa fa-search mr-3"
                                                   aria-hidden="true"></span> Ara
                                         </button>
+                                        @*<a href="/Destination/DestinationDetails/" class="btn btn-style btn-secondary">
+                                        <span class="fa fa-search mr-3"
+                                        aria-hidden="true"></span> Ara
+                                        </a>*@
                                     </div>
                                 </div>
                             </form>
@@ -44,3 +53,16 @@
         </div>
     </div>
 </section>
+
+<script>
+
+    let id = $("#select option:selected").val();
+    const date = $("#datetime").val();
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", function () {
+        console.log(id + " " + date)
+    })
+
+
+
+</script>

@@ -33,6 +33,26 @@ namespace DataAccessLayer.EntityFramework
             }
         }
 
+        public int DestinationSearch(string cityName, DateTime date)
+        {
+            using (var context = new Context())
+            {
+                var id= context.Destinations   // id 0'a hep eşit dönüyor!!
+                    .Where(x => x.City
+                    .Equals(cityName) && x.Date.Equals(date))
+                    .Select(y=>y.DestinationID)
+                    .FirstOrDefault();
+
+                if (id != 0)
+                    return id;
+
+                else
+                {
+                    return 1; // eğer belirtilen kriterlerde rota yoksa 1 numaralı id'li rotayı döndürsün
+                }
+            }
+        }
+
         public List<Destination> GetDestinationByReservation()
         {
             using (var context = new Context())

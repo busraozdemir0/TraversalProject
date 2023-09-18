@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         public List<Destination> TGetDestinationByReservation();
         public void TDestinationIsPassive(Destination destination);
         public void TDestinationIsActive(Destination destination);
+        public int TDestinationSearch(string cityName, DateTime date);
     }
 }

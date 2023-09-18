@@ -38,6 +38,11 @@ namespace BusinessLayer.Concrete
             _destinationDal.DestinationIsPassive(destination);
         }
 
+        public int TDestinationSearch(string cityName, DateTime date)
+        {
+           return _destinationDal.DestinationSearch(cityName, date);
+        }
+
         public Destination TGetByID(int id)
         {
             return _destinationDal.GetByID(id);
