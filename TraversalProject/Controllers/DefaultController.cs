@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.InkML;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -27,8 +28,10 @@ namespace TraversalProject.Controllers
         public IActionResult DestinationSearch(string city, DateTime date)
         {
             var valueID= _destinationService.TDestinationSearch(city, date);
-            return RedirectToAction("DestinationDetails", "Destination", new {id=valueID});
+            //return RedirectToAction("DestinationDetails", "Destination", new {id=valueID});
+            return RedirectToAction("Index", "Destination");
         }
+        
 
     }
 }
