@@ -37,7 +37,7 @@ namespace DataAccessLayer.EntityFramework
         {
             using (var context = new Context())
             {
-                var id= context.Destinations   // id hep 0'a  eşit dönüyor!!
+                var id= context.Destinations  
                     .Where(x => x.City
                     .Equals(cityName) && x.Date.Equals(date))
                     .Select(y=>y.DestinationID)
@@ -47,7 +47,7 @@ namespace DataAccessLayer.EntityFramework
                     return id;
 
                 else
-                    return 1; // eğer belirtilen kriterlerde rota yoksa 1 numaralı id'li rotayı döndürsün
+                    return 0; // eğer belirtilen kriterlerde rota yoksa 1 numaralı id'li rotayı döndürsün
                 
             }
         }

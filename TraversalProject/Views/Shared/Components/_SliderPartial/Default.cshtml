@@ -13,7 +13,10 @@
                         <h3>Seyahatler için uzağa gitmeye gerek yok.</h3>
                         <h6 class="mb-3">Bir sonraki maceranı hemen planla.</h6>
                         <div class="flex-wrap search-wthree-field mt-md-5 mt-4">
-
+                            @if (@ViewBag.id == 0)
+                            {
+                                <div>@ViewBag.message</div>
+                            }
                             <form asp-action="DestinationSearch" asp-controller="Default" method="get" class="booking-form">
                                 <div class="row book-form">
                                     <div class="form-input col-md-4 mt-md-0 mt-3">
@@ -21,7 +24,7 @@
                                             <option value="">Rotalar</option>
                                             @foreach (var item in Model)
                                             {
-                                                <option value="@item.DestinationID">@item.City</option>
+                                                <option value="@item.City">@item.City</option>
                                             }
                                         </select>
                                     </div>
@@ -34,10 +37,6 @@
                                         <span class="fa fa-search mr-3"
                                         aria-hidden="true"></span> Ara
                                         </button>
-                                        @*<a href="/Destination/DestinationDetails/" class="btn btn-style btn-secondary">
-                                            <span class="fa fa-search mr-3"
-                                                  aria-hidden="true"></span> Ara
-                                        </a>*@
                                     </div>
                                 </div>
                             </form>
