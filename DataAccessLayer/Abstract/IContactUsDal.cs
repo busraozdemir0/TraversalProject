@@ -12,5 +12,6 @@ namespace DataAccessLayer.Abstract
         List<ContactUs> GetListContactUsByTrue();
         List<ContactUs> GetListContactUsByFalse();
         void ContactUsStatusChangeToFalse(int id);  // silmek yerine durumunu False yapacağız
+        ContactUs ContactUsMessageDetails(int id);
     }
 }

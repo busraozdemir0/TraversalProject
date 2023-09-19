@@ -1,0 +1,23 @@
+﻿@model ContactUs
+@{
+    ViewData["Title"] = "ContactUsDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<h1>Mesaj Detayları</h1>
+
+<div class="card">
+    <div class="card-header">
+        @Model.Name - @Model.Mail / @(((DateTime)Model.MessageDate).ToString("dd-MMM-yyyy"))
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Subject</h5>
+        <p class="card-text">@Model.MessageBody</p>
+        <div class="btn-group">
+            <a href="/Admin/ContactUs/Index/" class="btn btn-outline-primary"><i class="fa-solid fa-backward"></i></a>
+            <a href="/Admin/ContactUs/ContactUsDelete/@Model.ContactUsID" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a>
+        </div>
+    </div>
+</div>
+

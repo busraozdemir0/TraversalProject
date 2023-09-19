@@ -12,14 +12,29 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfContactUsDal : GenericRepository<ContactUs>, IContactUsDal
     {
+        public ContactUs ContactUsMessageDetails(int id)
+        {
+            using (var context = new Context())
+            {
+                var contactUs = context.ContactUses.Where(x => x.ContactUsID == id).FirstOrDefault();
+                return contactUs;
+            }
+        }
+
         public void ContactUsStatusChangeToFalse(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Context())
+            {
+                var contactUs = context.ContactUses.Where(x => x.ContactUsID == id).FirstOrDefault();
+                contactUs.MessageStatus = false;
+                context.ContactUses.Update(contactUs);
+                context.SaveChanges();
+            }
         }
 
         public List<ContactUs> GetListContactUsByFalse()
         {
-            using(var context=new Context())
+            using (var context = new Context())
             {
                 //MessageStatus'u false olan mesajlar listelenecek
                 var falseValues = context.ContactUses.Where(x => x.MessageStatus == false).ToList();

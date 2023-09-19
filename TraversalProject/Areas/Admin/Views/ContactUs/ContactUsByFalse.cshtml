@@ -1,11 +1,10 @@
 ﻿@model List<ContactUs>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ContactUsByFalse";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     int count = 0;
 }
-
-<h1>Bize Ulaşın Mesajları</h1>
+<h1>Silinen Mesajlar</h1>
 
 <table class="table table-bordered table-hover">
     <tr>
@@ -13,10 +12,9 @@
         <th>Gönderen</th>
         <th>Konu</th>
         <th>Tarih</th>
-        <th>Sil</th>
         <th>Mesajı Aç</th>
     </tr>
-    @foreach(var item in Model)
+    @foreach (var item in Model)
     {
         <tr>
             @{
@@ -26,10 +24,8 @@
             <td>@item.Name</td>
             <td>@item.Subject</td>
             <td>@item.MessageDate.ToString("dd-MMM-yyyy")</td>
-            <td><a href="/Admin/ContactUs/ContactUsDelete/@item.ContactUsID" class="btn btn-outline-danger">Sil</a></td>
             <td><a href="/Admin/ContactUs/ContactUsDetails/@item.ContactUsID" class="btn btn-outline-dark">Mesajı Aç</a></td>
         </tr>
     }
 </table>
 
-<a href="/Admin/ContactUs/ContactUsByFalse/" class="btn btn-outline-primary">Silinen Mesajlar</a>

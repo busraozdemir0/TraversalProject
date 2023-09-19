@@ -21,5 +21,20 @@ namespace TraversalProject.Areas.Admin.Controllers
             var contactUs = _contactUsService.TGetListContactUsByTrue(); // durumu True olan mesajlar gelsin
             return View(contactUs);
         }
+        public IActionResult ContactUsDelete(int id)
+        {
+            _contactUsService.TContactUsStatusChangeToFalse(id); 
+            return RedirectToAction("Index");
+        }
+        public IActionResult ContactUsDetails(int id)
+        {
+            var contact=_contactUsService.TContactUsMessageDetails(id);
+            return View(contact);
+        }
+        public IActionResult ContactUsByFalse()
+        {
+            var contactUs = _contactUsService.TGetListContactUsByFalse();
+            return View(contactUs);
+        }
     }
 }

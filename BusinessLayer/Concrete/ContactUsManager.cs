@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,14 @@ namespace BusinessLayer.Concrete
             _contactUsDal.Insert(t);
         }
 
+        public ContactUs TContactUsMessageDetails(int id)
+        {
+            return _contactUsDal.ContactUsMessageDetails(id);
+        }
+
         public void TContactUsStatusChangeToFalse(int id)
         {
-            throw new NotImplementedException();
+            _contactUsDal.ContactUsStatusChangeToFalse(id);
         }
 
         public void TDelete(ContactUs t)
