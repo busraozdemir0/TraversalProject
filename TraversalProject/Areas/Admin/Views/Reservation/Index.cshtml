@@ -29,14 +29,14 @@
             <td>
                 @if(item.Status == "Onay Bekliyor")
                 {
-                    <a href="/Admin/Reservation/ApprovalReservation/@item.ReservationID" class="btn btn-outline-warning">Onayla</a>
+                    <a href="/admin/reservation/approvalreservation/@item.ReservationID" class="btn btn-outline-warning">Onayla</a>
                 }
                 else
                 {
                     <a href="#" class="btn btn-outline-success">Onaylandı</a>
                 }
             </td>
-            <td><a href="/Admin/Reservation/DeleteReservation/@item.ReservationID" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/admin/reservation/deletereservation/@item.ReservationID" class="btn btn-outline-danger">Sil</a></td>
         </tr>
     }
 </table>

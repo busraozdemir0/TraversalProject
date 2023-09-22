@@ -36,19 +36,19 @@
             @{
                 if (item.Status == true)
                 {
-                    <td><a href="/Admin/Guide/ChangeToFalse/@item.GuideID" class="btn btn-outline-warning">Pasif Yap</a></td>
+                    <td><a href="/admin/guide/changetofalse/@item.GuideID" class="btn btn-outline-warning">Pasif Yap</a></td>
                 }
                 else
                 {
-                    <td><a href="/Admin/Guide/ChangeToTrue/@item.GuideID" class="btn btn-outline-info">Aktif Yap</a></td>
+                    <td><a href="/admin/guide/changetotrue/@item.GuideID" class="btn btn-outline-info">Aktif Yap</a></td>
                 }
             }
 
-            <td><a href="/Admin/Guide/EditGuide/@item.GuideID" class="btn btn-outline-success">Düzenle</a></td>
-            <td><a href="/Admin/Guide/DeleteGuide/@item.GuideID" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/admin/guide/editguide/@item.GuideID" class="btn btn-outline-success">Düzenle</a></td>
+            <td><a href="/admin/guide/deleteguide/@item.GuideID" class="btn btn-outline-danger">Sil</a></td>
         </tr>
     }
 </table>
 
-<a href="/Admin/Guide/AddGuide" class="btn btn-outline-primary">Yeni Rehber Girişi</a>
+<a href="/admin/guide/addguide" class="btn btn-outline-primary">Yeni Rehber Girişi</a>
 

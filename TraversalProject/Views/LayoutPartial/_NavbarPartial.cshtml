@@ -20,25 +20,25 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/Default/Index/">Ana Sayfa <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/default/index/">Ana Sayfa <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/About/Index/">Hakkımızda</a>
+                        <a class="nav-link" href="/about/index/">Hakkımızda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Destination/Index/">Tur Rotaları</a>
+                        <a class="nav-link" href="/destination/index/">Tur Rotaları</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Guide/Index/">Rehberlerimiz</a>
+                        <a class="nav-link" href="/guide/index/">Rehberlerimiz</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Contact/Index/">İletişim</a>
+                        <a class="nav-link" href="/contact/index/">İletişim</a>
                     </li>
 
                 </ul>
             </div>
             <div class="d-lg-block d-none mr-3">
-                <a href="/Member/Reservation/NewReservation/" class="btn btn-style btn-secondary">Rezervasyon Yap</a>
+                <a href="/member/reservation/newreservation/" class="btn btn-style btn-secondary">Rezervasyon Yap</a>
             </div>
 
             <div class="w3l_header_right">
@@ -52,15 +52,15 @@
                                     @if (User.Identity.IsAuthenticated)
                                     {
                                         @*  @await Component.InvokeAsync("ShowHomeName")*@
-                                        <li><a href="/Login/LogOut/"> ▸ Çıkış Yap</a></li>
+                                        <li><a href="/login/logout/"> ▸ Çıkış Yap</a></li>
                                         <br />
                                     }
                                     else
                                     {
-                                        <li><a href="/Login/SignIn/"> ▸ Giriş Yap</a></li>
+                                        <li><a href="/login/signin/"> ▸ Giriş Yap</a></li>
                                         <br />
                                     }
-                                    <li><a href="/Login/SignUp/"> ▸ Kayıt Ol</a></li>
+                                    <li><a href="/login/signup/"> ▸ Kayıt Ol</a></li>
                                 </ul>
                             </div>
                         </div>

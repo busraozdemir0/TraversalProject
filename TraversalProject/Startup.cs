@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +32,8 @@ namespace TraversalProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+
             // CQRS yapýsý için
             services.AddScoped<GetAllDestinationQueryHandler>();
             services.AddScoped<GetDestinationByIDQueryHandler>();
@@ -61,6 +64,12 @@ namespace TraversalProject
 
             services.CustomValidator();
 
+            // Routing => programda urldeki tüm ifadelerin lowercase olmasý için
+            services.AddRouting(options =>
+            {
+                options.LowercaseUrls = true;
+            });
+
             services.AddControllersWithViews().AddFluentValidation();
 
             // proje seviyesinde authentication için
@@ -83,7 +92,10 @@ namespace TraversalProject
             {
                 options.LoginPath = "/Login/SignIn/";  // eðer kullanýcý sisteme giriþ yapmamýþsa buraya yönlendirsin
             });
+
+            
         }
+                
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILoggerFactory loggerFactory)

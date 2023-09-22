@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Concrete;
+using DocumentFormat.OpenXml.Spreadsheet;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -42,9 +43,10 @@ namespace TraversalProject.Controllers
             if(p.Password == p.ConfirmPassword)
             {
                 var result = await _userManager.CreateAsync(appUser, p.Password); // şifre arkaplanda hashlendiği için burada yazıyoruz
-                
-                if(result.Succeeded)
+
+                if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(appUser, "Member");  // kayıt olan user'a member rolü atama
                     return RedirectToAction("SignIn");
                 }
                 else
