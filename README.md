@@ -25,6 +25,10 @@
 ![Guides](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/guides.png)
 
 
+### Hakkımızda Sayfası
+![İletişim](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/hakkımızda.png)
+
+
 ### İletişim Sayfası
 ![İletişim](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/contact.png)
 
@@ -63,23 +67,26 @@ Dil seçildiğinde sidebar(sol menü) dile göre değişkenlik gösteriyor.
 
 
 ### Admin Paneli - Duyuru Oluşturma Sayfası
-![Admin2](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/announcements.png)
+![Admin2](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/admin_newAnnouncement.png)
+
+
+### Admin Paneli - Oluşturulan Rezervasyonlar Sayfası
+![Admin6](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/adminReservation.png)
 
 
 ### Admin Paneli - Gelen Mesajlar Sayfası
-![Admin3](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/adminContact.png)
+![Admin3](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/adminMessages.png)
 
 
 ### Admin Paneli - Mail Gönderme Sayfası
-![Admin4](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/mailSubmit.png)
+![Admin4](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/adminMailSubmit.png)
 
 
 ### Admin Paneli - Rolleme İşlemleri
-![Admin5](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/rol1.png)
+![Admin5](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/adminRoles.png)
 
 
-Kullanıcıya Rol Atama
-![Admin6](https://github.com/busraozdemir0/TraversalProject/blob/master/TraversalProject/wwwroot/TraversalScreenshots/kullanıcıyaRolAtama.png)
+
 
 
 
