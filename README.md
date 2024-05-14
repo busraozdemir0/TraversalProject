@@ -30,9 +30,10 @@ Asp.Net Core MVC 5.0 kullanılarak geliştirilen bu uygulamada, Entity Framework
 - CQRS Tasarım Deseni
 - PagedList ile sayfalama yapısı
 - Fluent Validation ile doğrulama
+- Identity ile kullanıcı ve rol işlemleri
   
 # Sitenin Öne Çıkan Özellikleri
-- Kulllanıcı Paneli ve Admin Paneli
+- Üye Paneli ve Admin Paneli
 - Identity kütüphanesi ile giriş yapma özelliği.
 - Rolleme ve yetkilendirme ile erişim kısıtlamaları
 - FluentValidation kütüphanesi yardımıyla doğrulamalar
@@ -44,7 +45,7 @@ Asp.Net Core MVC 5.0 kullanılarak geliştirilen bu uygulamada, Entity Framework
 - Panellerde Profil ayarları sayfaları
 - Şifremi Unuttum özelliği
 - Kullanıcılara roller atama, silme ve güncelleme
-- Menülerde çoklu dil desteği
+- Üye panelinde çoklu dil desteği
 
 # Admin Paneli Özellikleri
 - İstatistikleri görme
@@ -62,12 +63,13 @@ Asp.Net Core MVC 5.0 kullanılarak geliştirilen bu uygulamada, Entity Framework
 - Site üzerindeki verilerde CRUD işlemleri
 - Rolleme yapma
 
-# Kullanıcı Paneli Özellikleri
+# Üye Paneli Özellikleri
 - İstatistikleri görme
 - Profil düzenleme işlemleri
 - Aktif rota-gezileri görme ve rezervasyon oluşturma
 - Onay bekleyen rezervasyonları görüntüleme
 - Geçmiş rezervasyonları görüntüleme
+- Menülerde çoklu dil desteği
 
 # Sitenin Görselleri
 
