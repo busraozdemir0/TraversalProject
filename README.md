@@ -46,6 +46,7 @@ Asp.Net Core MVC 5.0 kullanılarak geliştirilen bu uygulamada, Entity Framework
 - Şifremi Unuttum özelliği
 - Kullanıcılara roller atama, silme ve güncelleme
 - Üye panelinde çoklu dil desteği
+- Arama işlemleri
 
 # Admin Paneli Özellikleri
 - İstatistikleri görme
