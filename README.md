@@ -40,7 +40,7 @@ Asp.Net Core MVC 5.0 kullanılarak geliştirilen bu uygulamada, Entity Framework
 - AJAX ile CRUD işlemler
 - MailKit ile Mesajlaşma özelliği
 - PagedList ile sayfalama yapısı
-- Ana Sayfadaki bloglara yorum yapma, beğeni yapma
+- Ana Sayfadaki turları görüntüleme & rezervasyon yapma
 - Panellerde ilgili CRUD işlemleri
 - Panellerde Profil ayarları sayfaları
 - Şifremi Unuttum özelliği
